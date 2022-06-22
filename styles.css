@@ -16,6 +16,9 @@
   --btn-padding: 8px;
   --search-padding: 0.6rem, 1rem;
   --card-padding: 1rem;
+
+  --sticky-top-left: 5.4rem;
+  --sticky-top-right: -18rem;
 }
 
 *,
@@ -120,4 +123,122 @@ nav .create {
   display: flex;
   align-items: center;
   gap: 2rem;
+}
+
+/* ===================== MAIN====================*/
+
+main {
+  position: relative;
+  top: 5.4rem;
+}
+
+main .container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 18vw auto 20vw;
+  column-gap: 2rem;
+  position: relative;
+}
+
+/* ===================== LEFT ====================*/
+
+main .container .left {
+  height: max-content;
+  position: sticky;
+  top: var(--sticky-top-left);
+}
+
+main .container .left .profile {
+  padding: var(--card-padding);
+  background: var(--white-color);
+  border-radius: var(--card-border-radius);
+  display: flex;
+  align-items: center;
+  column-gap: 1rem;
+  width: 100%;
+}
+
+.left .left-links {
+  margin-top: 1rem;
+  background: var(--white-color);
+  border-radius: var(--card-border-radius);
+}
+
+.left .left-links li {
+  height: 4rem;
+  cursor: pointer;
+  transition: all 900ms ease;
+  position: relative;
+}
+
+.left .left-links li:hover {
+  background: var(--light-color);
+}
+
+.left .left-links li svg {
+  opacity: 0.4;
+}
+
+.left .left-links li a {
+  display: inline-block;
+  padding-left: 30px;
+  margin: 0;
+  height: 4rem;
+  line-height: 4rem;
+}
+
+.left .left-links li .notifications {
+  position: relative;
+}
+
+.left .left-links li .notification-count {
+  position: absolute;
+  left: 10px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  top: -15px;
+  background: var(--danger-color);
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+  line-height: 25px;
+  border-radius: 0.8rem;
+  color: var(--white-color);
+  text-align: center;
+}
+
+.left li.active {
+  background: var(--light-color);
+}
+
+.left-links li.first {
+  border-top: solid 15px var(--white-color);
+  box-sizing: content-box;
+  border-top-left-radius: var(--card-border-radius);
+  border-top-right-radius: var(--card-border-radius);
+}
+
+.left-links li.first a {
+  display: flex;
+}
+
+.left-links li.first a h2 {
+  padding-bottom: 5px;
+}
+
+.left-links .active {
+  color: var(--primary-color);
+}
+
+.left-links .active span svg {
+  fill: var(--primary-color);
+}
+
+.left-links li.active::before {
+  content: "";
+  display: block;
+  width: 0.5rem;
+  height: 100%;
+  position: absolute;
+  background: var(--primary-color);
 }
