@@ -180,6 +180,7 @@ main .container .left .profile {
 }
 
 .left .left-links li a {
+  position: relative;
   display: inline-block;
   padding-left: 30px;
   margin: 0;
@@ -193,7 +194,7 @@ main .container .left .profile {
 
 .left .left-links li .notification-count {
   position: absolute;
-  left: 10px;
+  left: -15px;
   font-weight: bold;
   font-size: 0.8rem;
   top: -15px;
@@ -241,4 +242,50 @@ main .container .left .profile {
   height: 100%;
   position: absolute;
   background: var(--primary-color);
+}
+
+.left .btn {
+  margin-top: 1rem;
+  width: 100%;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.left .notification-list {
+  background: var(--white-color);
+  position: absolute;
+  top: 0;
+  left: 190%;
+  width: 30rem;
+  border-radius: var(--card-border-radius);
+  padding: var(--card-padding);
+  box-shadow: 0 0 2rem hsl(var(--primary-color), 75%, 60%, 25%);
+  z-index: 8;
+  display: none;
+}
+
+.left .notification-list::before {
+  content: "";
+  width: 1.2rem;
+  height: 1.3rem;
+  background: var(--white-color);
+  position: absolute;
+  left: -0.6rem;
+  transform: rotate(45deg);
+}
+
+.left .notification-list > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+}
+
+.left .notification-body {
+  line-height: 22px;
+}
+
+.left .notification-body small {
+  display: block;
 }
