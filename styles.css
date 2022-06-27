@@ -189,7 +189,8 @@ main .container .left .profile {
 
 .left .left-links li a {
     position: relative;
-    display: inline-block;
+    display: flex;
+    gap: 1rem;
     padding-left: 30px;
     margin: 0;
     height: 4rem;
@@ -202,10 +203,10 @@ main .container .left .profile {
 
 .left .left-links li .notification-count {
     position: absolute;
-    left: -15px;
     font-weight: bold;
     font-size: 0.8rem;
-    top: -15px;
+    left: 5px;
+    top: 0px;
     background: var(--danger-color);
     display: inline-block;
     width: 25px;
@@ -557,6 +558,7 @@ main .container .right {
     display: grid;
     place-items: center;
     font-size: 0.9rem;
+    display: none;
 }
 
 .customize-theme .card {
@@ -696,4 +698,91 @@ main .container .right {
     border: 2px solid var(--gray-color);
     border-radius: 50%;
     margin-right: 1rem;
+}
+
+/* ===============================
+MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS
+==================================
+*/
+
+@media screen and (max-width: 1200px) {
+    .container {
+        width: 96%;
+
+    }
+
+    main .container {
+        grid-template-columns: 5rem auto 30vw;
+        gap: 1rem;
+    }
+
+    main .container .left .profile {
+        display: none;
+    }
+
+    .left {
+        width: 5rem;
+        z-index: 5;
+    }
+
+    .left-links h3 {
+        display: none;
+    }
+
+    .left .btn {
+        display: none;
+    }
+}
+
+/* ===============================
+MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
+==================================
+*/
+
+@media screen and (max-width:992px) {
+    nav .search-bar {
+        display: none;
+    }
+
+    main .container {
+        grid-template-columns: 0 auto 5rem;
+    }
+
+    main .container .left {
+        grid-column: 3/4;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+    }
+
+
+    /* ===============================
+    NOTIFICATION
+    ==================================
+    */
+
+    .left .notification-list {
+        position: absolute;
+        left: -20rem;
+        width: 20rem;
+    }
+
+    .left .notification-list::before {
+        display: absolute;
+        top: 1.3rem;
+        left: calc(20rem - 0.6rem);
+        display: block;
+    }
+
+    main .container .left .left-links>h3 {
+        display: none;
+    }
+
+    main .container .center {
+        grid-column: 1/3;
+    }
+
+    main .container .right {
+        display: none;
+    }
 }
