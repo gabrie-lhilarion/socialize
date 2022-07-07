@@ -1,10 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
+    --primary-hue-color: 252;
     --white-color: hsl(252, 30%, 100%);
     --light-color: hsl(252, 30%, 95%);
     --gray-color: hsl(252, 15%, 65%);
-    --primary-color: hsl(252, 75%, 60%);
+    --primary-color: hsl(var(--primary-hue-color), 75%, 60%);
     --secondary-color: hsl(252, 100%, 90%);
     --success-color: hsl(252, 95%, 65%);
     --danger-color: hsl(0, 95%, 65%);
@@ -221,11 +222,18 @@ main .container .left .profile {
     background: var(--light-color);
 }
 
-.left-links li.first {
+.left-links li:first-child {
     border-top: solid 15px var(--white-color);
     box-sizing: content-box;
     border-top-left-radius: var(--card-border-radius);
     border-top-right-radius: var(--card-border-radius);
+}
+
+.left-links li:last-child {
+    border-bottom: solid 15px var(--white-color);
+    box-sizing: content-box;
+    border-bottom-left-radius: var(--card-border-radius);
+    border-bottom-right-radius: var(--card-border-radius);
 }
 
 .left-links li.first a {
@@ -546,6 +554,15 @@ main .container .right {
 
 /* THEME  */
 
+.theme {
+    display: flex;
+    cursor: pointer;
+}
+
+.theme h3 {
+    padding-left: 10px;
+}
+
 .customize-theme {
     background: rgba(255, 255, 255, 0.5);
     width: 100vw;
@@ -555,7 +572,6 @@ main .container .right {
     left: 0;
     z-index: 100;
     text-align: center;
-    display: grid;
     place-items: center;
     font-size: 0.9rem;
     display: none;
@@ -566,7 +582,7 @@ main .container .right {
     padding: 3rem;
     border-radius: var(--card-border-radius);
     width: 50%;
-    box-shadow: 0 0.5px 10px 0.5px #aaa;
+    box-shadow: 0 0.5px 10px 0.5px var(--primary-color);
 }
 
 /* ======== FONT-SIZE ======== */
@@ -732,6 +748,27 @@ MEDIA QUERIES FOR SMALL LAPTOPS AND BIG TABLETS
     .left .btn {
         display: none;
     }
+
+    .customize-theme .card {
+        width: 60vw;
+    }
+
+    .customize-theme .choose-bg {
+
+        gap: 1rem;
+    }
+
+    .customize-theme .choose-bg>div {
+        padding: var(--card-padding);
+        width: 90%;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+        font-weight: bold;
+        border-radius: 0.4rem;
+        cursor: pointer;
+    }
+
 }
 
 /* ===============================
@@ -746,6 +783,7 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 
     main .container {
         grid-template-columns: 0 auto 5rem;
+        gap: 0;
     }
 
     main .container .left {
@@ -784,5 +822,25 @@ MEDIA QUERIES FOR SMALL TABLETS AND MOBILE PHONES
 
     main .container .right {
         display: none;
+    }
+
+    .customize-theme .card {
+        width: 96vw;
+    }
+
+    .customize-theme .choose-bg {
+
+        gap: 1rem;
+    }
+
+    .customize-theme .choose-bg>div {
+        padding: var(--card-padding);
+        width: 80%;
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        border-radius: 0.4rem;
+        cursor: pointer;
     }
 }
